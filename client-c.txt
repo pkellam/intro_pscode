@@ -2,3 +2,35 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+# Variables
+total_items_scanned = 0
+total_cases = 0
+items_per_package = 2
+items_per_case = 50
+
+# Repeat until items are scanned
+while True:
+    # Get the number of items scanned by the hardware device
+    scanned_items = get_scanned_items()  # Retrieves the scanned count
+
+    # Update the total items scanned
+    total_items_scanned += scanned_items
+
+    # Check if a case is filled
+    if total_items_scanned >= items_per_case:
+        # Calculate the number of cases filled
+        cases_filled = total_items_scanned // items_per_case
+        total_cases += cases_filled
+
+        # Update the remaining items
+        total_items_scanned %= items_per_case
+
+        # Print a message indicating the filled cases
+        print("{cases_filled} cases filled. Remaining items: {total_items_scanned}")
+
+    # Check if all items are scanned
+    if total_items_scanned == 0:
+        break
+
+# Print the total number of cases filled
+print(f"Total cases filled: {total_cases}")

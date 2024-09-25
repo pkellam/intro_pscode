@@ -2,3 +2,37 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+# Generate a random number between 1 and 10
+random_number = generate_random_number(1, 10)
+
+# Initialize the number of attempts
+attempts = 3
+
+# Display game instructions
+print("Welcome to the Random Number Guessing Game!")
+print("Guess the secret number between 1 and 10. You have {attempts} attempts.")
+
+# Repeat until the user runs out of attempts
+while attempts > 0:
+    # Get user input for their guess
+    user_guess = get_user_input("Enter your guess: ")
+
+    # Validate user input (ensure it's a valid integer between 1 and 10)
+    if not is_valid_guess(user_guess):
+        print("Invalid guess. Please enter a number between 1 and 10.")
+        continue
+
+    # Check if the guess is correct
+    if user_guess == random_number:
+        print("Congratulations! You guessed the correct number.")
+        break
+    else:
+        print("Try another guess")
+
+        # Decrement the number of attempts
+        attempts -= 1
+        print("You have {attempts} attempts remaining.")
+
+# If the user runs out of attempts, reveal the secret number
+if attempts == 0:
+    print("Sorry, you're out of attempts. The secret number was {random_number}.")

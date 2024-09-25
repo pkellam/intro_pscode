@@ -2,3 +2,37 @@
 # Add your pseudocode to this file below this line: #
 # ------------------------------------------------- #
 
+# Initialize the user current position
+current_position_x = 0  # X-coordinate
+current_position_y = 0  # Y-coordinate
+
+# Define the target location (shelf or aisle)
+target_location_x = 5  # Example: X-coordinate of the target location
+target_location_y = 3  # Example: Y-coordinate of the target location
+
+# Display instructions to the customer
+print("Welcome to the Warehouse walking application!")
+print("You are starting at position (0, 0).")
+
+# Repeat until the user reaches the target location
+while current_position_x != target_location_x or current_position_y != target_location_y:
+    # Get user input for the next move
+    user_move = get_user_input("Enter your next move (N/S/E/W): ")
+
+    # Update the user's position based on the move
+    if user_move == "N":
+        current_position_y += 1
+    elif user_move == "S":
+        current_position_y -= 1
+    elif user_move == "E":
+        current_position_x += 1
+    elif user_move == "W":
+        current_position_x -= 1
+    else:
+        print("Invalid input. Please enter N, S, E, or W.")
+
+    # Display the updated position
+    print("Your current position: ({current_position_x}, {current_position_y})")
+
+# User has reached the target location
+print("Congratulations! You have reached the right location.")
